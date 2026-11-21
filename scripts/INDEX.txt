@@ -17,7 +17,7 @@ Un fichier par bloc de code, nommé d'après sa section. Les valeurs sont des ex
 3.1-03.yaml                  Premier conteneur
 3.1-04.sh                    Premier conteneur
 3.2-01.sh                    Un mini PC Linux en secondaire
-3.2-02.yaml                  Un mini PC Linux en secondaire
+3.2-02.sh                    Un mini PC Linux en secondaire
 3.2-03.sh                    Un mini PC Linux en secondaire
 4.1-01.sh                    SSH par clé seulement
 4.1-02.sh                    Créer et protéger ta clé SSH, pas à pas
@@ -85,7 +85,8 @@ Un fichier par bloc de code, nommé d'après sa section. Les valeurs sont des ex
 11.1-01.sh                   Installer Ollama
 11.1-02.sh                   Installer Ollama
 11.1-03.yaml                 Une interface web
-11.2-01.yaml                 Installer avec Docker
+11.2-01-compose.yaml         Installer avec Docker
+11.2-01.env                  Installer avec Docker
 11.2-02.json                 Un premier flux utile
 11.2-03.sh                   Sauvegarder et mettre à jour
 11.3-01.sh                   Installer et gérer
@@ -101,7 +102,8 @@ Un fichier par bloc de code, nommé d'après sa section. Les valeurs sont des ex
 12.1-06.sh                   Les alertes qui comptent
 12.1-07.sh                   Les alertes qui comptent
 12.2-01.yaml                 Étape 1 : installer
-12.2-02.yaml                 Étape 3 : une première carte
+12.2-02-services.yaml        Étape 3 : une première carte
+12.2-02-settings.yaml        Étape 3 : une première carte
 12.2-03.yaml                 Étape 4 : les widgets
 13.1-01.sh                   Vers le nuage, chiffré
 13.2-01.sh                   Organiser la nuit
@@ -118,7 +120,8 @@ Un fichier par bloc de code, nommé d'après sa section. Les valeurs sont des ex
 18.1-01.sh                   Ce qu'il faut
 18.1-02.yaml                 Ce qu'il faut
 18.1-03.sh                   Ce qu'il faut
-18.2-01.yaml                 18.2 Une seule connexion pour plusieurs apps
+18.2-01-compose.yaml         18.2 Une seule connexion pour plusieurs apps
+18.2-01.env                  18.2 Une seule connexion pour plusieurs apps
 18.2-02.sh                   18.2 Une seule connexion pour plusieurs apps
 18.3-01.yaml                 18.3 Savoir quand mettre à jour
 18.4-01.sh                   18.4 Tes composes dans Git

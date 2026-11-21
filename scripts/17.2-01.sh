@@ -36,13 +36,20 @@ case "$MODE" in
       mv -n -- "$F" "$DEST"/ && N=$((N + 1))
     done < <(find "$CIBLE" -maxdepth 1 -type f \
       -name '*.log' -mtime +"$JOURS" -print0)
-    if [ "$N" -eq 0 ]; then
+    # Preuve : plus aucun vieux journal ne doit rester
+    RESTE="$(find "$CIBLE" -maxdepth 1 -type f \
+      -name '*.log' -mtime +"$JOURS" | wc -l)"
+    if [ "$N" -eq 0 ] && [ "$RESTE" -eq 0 ]; then
       rmdir "$DEST"; echo "Rien a deplacer."; exit 0
     fi
     # Le lot garde son dossier d'origine
     printf '%s\n' "$CIBLE" > "$DEST/.origine"
     printf '%s\n' "$DEST" > "$NOTE"
     echo "Deplaces vers $DEST : $N fichier(s)."
+    if [ "$RESTE" -gt 0 ]; then
+      echo "Restes dans $CIBLE : $RESTE (droits ?)"
+      exit 2
+    fi
     ;;
   retour)
     [ -f "$NOTE" ] ||

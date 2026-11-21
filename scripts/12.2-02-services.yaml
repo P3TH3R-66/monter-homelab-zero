@@ -11,9 +11,3 @@
           type: radarr
           url: http://radarr:7878
           key: "{{HOMEPAGE_VAR_RADARR_KEY}}"
-
-# settings.yaml (extrait)
-title: Ma maison
-language: fr
-layout:
-  Médiathèque: {tab: Accueil, style: row, columns: 4}

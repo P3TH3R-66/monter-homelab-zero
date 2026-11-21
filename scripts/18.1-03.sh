@@ -14,11 +14,6 @@
         reverse_proxy jellyfin:8096
     }
 
-    @paperless host paperless.maison.exemple.ca
-    handle @paperless {
-        reverse_proxy paperless:8000
-    }
-
     @pocketid host id.maison.exemple.ca
     handle @pocketid {
         # reseau id : seul Caddy joint Pocket ID (18.2)

@@ -1,0 +1,5 @@
+# settings.yaml (extrait)
+title: Ma maison
+language: fr
+layout:
+  Médiathèque: {tab: Accueil, style: row, columns: 4}
