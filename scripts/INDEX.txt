@@ -123,6 +123,8 @@ Un fichier par bloc de code, nommé d'après sa section. Les valeurs sont des ex
 18.3-01.yaml                 18.3 Savoir quand mettre à jour
 18.4-01.sh                   18.4 Tes composes dans Git
 18.4-02.sh                   18.4 Tes composes dans Git
+18.4-03.sh                   18.4 Tes composes dans Git
+18.4-04.sh                   18.4 Tes composes dans Git
 18.5-01.yaml                 18.5 Durcir un conteneur
 18.6-01.sh                   18.6 Les journaux au même endroit
 fiche-vm-01.sh               3. Vérifier, sauvegarder, revenir

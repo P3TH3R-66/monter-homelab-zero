@@ -3,5 +3,8 @@
 *.env
 !*.enc.env
 !.env.example
+# restes possibles d'un dechiffrement interrompu
+.sops-travail.*/
+.env.nouveau
 data/
 config/
