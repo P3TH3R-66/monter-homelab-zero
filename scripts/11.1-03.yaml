@@ -1,0 +1,16 @@
+# Open WebUI : un ChatGPT local dans le navigateur
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:vX.Y.Z
+    # pour joindre Ollama, qui ecoute sur 127.0.0.1
+    network_mode: host
+    # WEBUI_SECRET_KEY=... pour garder les sessions
+    env_file: .env
+    environment:
+      # VM seulement ; puis Tailscale Serve (6.1)
+      - HOST=127.0.0.1
+      # le premier compte cree devient admin
+      - PORT=3000
+      - OLLAMA_BASE_URL=http://127.0.0.1:11434
+    volumes: ["./data:/app/backend/data"]
+    restart: unless-stopped

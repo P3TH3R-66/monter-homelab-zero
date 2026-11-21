@@ -1,0 +1,10 @@
+# Carte maison qui lit un JSON ecrit chaque heure par un script
+    - Sauvegardes:
+        icon: mdi-backup-restore
+        widget:
+          type: customapi
+          url: http://127.0.0.1:3000/local/etat.json
+          refreshInterval: 300000
+          mappings:
+            - {field: nas, label: NAS}
+            - {field: nuage, label: Nuage}

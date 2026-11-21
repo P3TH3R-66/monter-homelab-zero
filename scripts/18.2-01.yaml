@@ -1,0 +1,25 @@
+# /volume2/docker/pocket-id/docker-
+# compose.yml (d'apres le compose officiel)
+services:
+  pocket-id:
+    image: pocketid/pocket-id:vX.Y.Z
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    # servi par Caddy : id.maison.exemple.ca
+    # (reverse_proxy pocket-id:1411)
+    # reseau id : Caddy seul peut le joindre
+    networks: [id]
+
+networks:
+  id:
+    external: true
+
+# .env (chmod 600)
+APP_URL=https://id.maison.exemple.ca
+ENCRYPTION_KEY=                      # openssl rand -base64 32
+# Pocket ID croit alors l'adresse donnee par
+# X-Forwarded-For, peu importe qui l'envoie :
+# garde-le sur le reseau id, sans ligne ports:
+TRUST_PROXY=true

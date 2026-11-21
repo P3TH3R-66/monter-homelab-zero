@@ -1,0 +1,23 @@
+# /volume2/docker/caddy/docker-compose.yml
+services:
+  caddy:
+    build: .
+    restart: unless-stopped
+    # l'adresse LAN du NAS seulement : ni le tailnet
+    # (Serve y garde son 443) ni une autre carte ;
+    # aucune redirection sur le routeur
+    ports: ["192.168.1.10:443:443"]
+    env_file: .env                   # CF_API_TOKEN=... (chmod 600)
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./data:/data                 # certificats : a sauvegarder
+      - ./config:/config
+    networks: [proxy, id]
+
+networks:
+  proxy:
+    # les apps a servir rejoignent ce reseau
+    name: proxy
+  id:
+    # Caddy et Pocket ID seulement (18.2)
+    name: id

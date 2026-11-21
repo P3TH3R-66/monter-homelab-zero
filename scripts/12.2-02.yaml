@@ -1,0 +1,19 @@
+# services.yaml
+- Médiathèque:
+    - Radarr:
+        href: http://nas:7878
+        icon: radarr.png
+        description: Films
+        # pastille : conteneur en marche
+        server: mon-docker
+        container: radarr
+        widget:
+          type: radarr
+          url: http://radarr:7878
+          key: "{{HOMEPAGE_VAR_RADARR_KEY}}"
+
+# settings.yaml (extrait)
+title: Ma maison
+language: fr
+layout:
+  Médiathèque: {tab: Accueil, style: row, columns: 4}

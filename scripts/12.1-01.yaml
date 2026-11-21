@@ -1,0 +1,31 @@
+# /volume2/docker/surveillance/docker-compose.yml (extrait)
+services:
+  prometheus:
+    image: prom/prometheus:vX.Y.Z
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=180d
+      - --storage.tsdb.retention.size=10GB
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./data:/prometheus
+    mem_limit: 512m
+  # CPU, RAM, disques, temperatures du NAS
+  node-exporter:
+    image: prom/node-exporter:vX.Y.Z
+    pid: host
+    volumes: ["/:/host:ro,rslave", "./textfile:/textfile:ro"]
+    command:
+      - --path.rootfs=/host
+      - --collector.textfile.directory=/textfile
+  blackbox:                       # sondes : ping et pages web
+    image: prom/blackbox-exporter:vX.Y.Z
+  grafana:
+    image: grafana/grafana:X.Y.Z
+    # NAS seulement, servi par Tailscale
+    ports: ["127.0.0.1:3001:3000"]
+    # GF_SECURITY_ADMIN_PASSWORD=... sinon admin/admin
+    env_file: .env
+    volumes:
+      - ./grafana:/var/lib/grafana
+      - ./provisioning:/etc/grafana/provisioning

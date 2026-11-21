@@ -1,0 +1,42 @@
+# serre.yaml (extrait) : une sonde et un ventilateur
+esphome:
+  name: serre
+
+esp32:
+  board: esp32dev
+
+wifi:
+  # les secrets restent dans secrets.yaml
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  # point d'acces de secours si le Wi-Fi tombe
+  ap:
+    password: !secret ap_password
+
+api:
+  encryption:
+    # chiffre le lien avec Home Assistant
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+    # mises a jour chiffrees avec la cle de
+    # l'API (ESPHome 2026.9 et plus)
+    encryption:
+
+sensor:
+  - platform: dht
+    pin: GPIO4
+    temperature:
+      name: "Temperature serre"
+    humidity:
+      name: "Humidite serre"
+    update_interval: 60s
+
+switch:
+  - platform: gpio
+    # evite GPIO0, 2, 5, 12 et 15 : broches de demarrage
+    pin: GPIO26
+    name: "Ventilateur serre"
+    # apres une panne, le relais repart eteint
+    restore_mode: ALWAYS_OFF

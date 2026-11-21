@@ -1,0 +1,15 @@
+# config.yml (extrait) : OpenVINO sur l'iGPU
+# Intel, modele YOLOv9 exporte
+detectors:
+  ov:
+    type: openvino
+    device: GPU
+model:
+  model_type: yolo-generic
+  path: /config/model_cache/yolo.onnx    # YOLOv9 t ou s, entree 320
+  width: 320
+  height: 320
+  input_tensor: nchw
+  input_pixel_format: rgb
+  input_dtype: float
+  labelmap_path: /labelmap/coco-80.txt

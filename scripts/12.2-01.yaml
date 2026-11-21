@@ -1,0 +1,23 @@
+# compose.yaml
+services:
+  homepage:
+    # version epinglee
+    image: ghcr.io/gethomepage/homepage:vX.Y.Z
+    restart: unless-stopped
+    ports: ["127.0.0.1:3000:3000"]                 # NAS seulement
+    # chmod 600 : les cles
+    env_file: .env
+    environment:
+      - HOMEPAGE_ALLOWED_HOSTS=localhost:3000,nas.exemple.ts.net:3000
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./config:/app/config
+      # tes fichiers (page, JSON)
+      - ./local:/app/public/local
+
+  # Docker en lecture seule, jamais le socket brut
+  dockerproxy:
+    image: ghcr.io/tecnativa/docker-socket-proxy:vX.Y.Z
+    environment: [CONTAINERS=1, POST=0]
+    volumes: ["/var/run/docker.sock:/var/run/docker.sock:ro"]

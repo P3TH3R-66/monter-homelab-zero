@@ -1,0 +1,6 @@
+  qbittorrent:
+    network_mode: "service:gluetun"
+    depends_on:
+      gluetun:
+        condition: service_healthy
+        restart: true      # Compose 2.17 et plus

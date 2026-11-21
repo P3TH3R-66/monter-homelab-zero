@@ -1,0 +1,24 @@
+# compose.yaml (exemple ; epingle une
+# version precise, jamais "latest")
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:2.X.Y
+    restart: unless-stopped
+    # seulement la machine elle-meme ; le
+    # reste passe par Tailscale Serve
+    ports: ["127.0.0.1:5678:5678"]
+    env_file: .env
+    environment:
+      - GENERIC_TIMEZONE=America/Toronto
+      - TZ=America/Toronto
+      - N8N_HOST=n8n.exemple.ts.net
+      - WEBHOOK_URL=https://n8n.exemple.ts.net/
+      - EXECUTIONS_DATA_PRUNE=true
+      # heures : 14 jours d'historique
+      - EXECUTIONS_DATA_MAX_AGE=336
+    volumes:
+      # avant le 1er up : mkdir data && sudo chown 1000:1000 data
+      - ./data:/home/node/.n8n
+
+# .env (chmod 600) : la cle qui chiffre tous les credentials
+N8N_ENCRYPTION_KEY=une-longue-chaine-aleatoire

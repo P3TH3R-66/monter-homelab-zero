@@ -1,0 +1,20 @@
+# /volume2/docker/servarr/docker-compose.yml (extrait)
+  bookshelf:                      # livres numeriques
+    # etiquette mobile : epingle l'empreinte
+    image: ghcr.io/pennydreadful/bookshelf:hardcover@sha256:...
+    ports: ["8787:8787"]
+    volumes:
+      - /volume2/appdata/bookshelf:/config
+      # meme /data que les autres *arr : hardlinks
+      - /volume1/media:/data
+    environment: [PUID=1000, PGID=1000, TZ=America/Toronto]
+    restart: unless-stopped
+
+  bookshelf-audio:                # livres audio, 2e instance
+    image: ghcr.io/pennydreadful/bookshelf:hardcover@sha256:...
+    ports: ["8788:8787"]           # autre port cote hote
+    volumes:
+      - /volume2/appdata/bookshelf-audio:/config
+      - /volume1/media:/data
+    environment: [PUID=1000, PGID=1000, TZ=America/Toronto]
+    restart: unless-stopped

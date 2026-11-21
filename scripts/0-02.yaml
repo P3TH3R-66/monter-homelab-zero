@@ -1,0 +1,6 @@
+services:
+  web:
+    image: nginx:X.Y.Z
+    ports:
+      - "127.0.0.1:8088:80"     # joignable depuis la VM seulement
+    restart: unless-stopped

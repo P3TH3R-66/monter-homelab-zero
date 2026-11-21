@@ -1,0 +1,17 @@
+# /volume2/docker/diun/docker-compose.yml
+services:
+  diun:
+    image: crazymax/diun:X.Y.Z
+    command: serve
+    restart: unless-stopped
+    volumes:
+      - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=America/Toronto
+      - DIUN_WATCH_SCHEDULE=0 7 * * *               # chaque matin
+      - DIUN_PROVIDERS_DOCKER=true
+      # ou false + etiquette diun.enable=true par app
+      - DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true
+      - DIUN_NOTIF_NTFY_ENDPOINT=https://ntfy.sh
+      - DIUN_NOTIF_NTFY_TOPIC=un-sujet-long-et-impossible-a-deviner

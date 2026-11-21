@@ -1,0 +1,43 @@
+# Reolink de 5 MP ou moins : flux http-flv
+# plutot que RTSP (doc de Frigate)
+go2rtc:
+  streams:
+    entree:
+      # une seule adresse : le \ en fin de ligne colle la suite
+      - "ffmpeg:http://IP_CAMERA/flv?port=1935&app=bcs\
+        &stream=channel0_main.bcs&user={FRIGATE_CAM_USER}\
+        &password={FRIGATE_CAM_PASS}\
+        #video=copy#audio=copy#audio=opus"
+    entree_sub:
+      - "ffmpeg:http://IP_CAMERA/flv?port=1935&app=bcs\
+        &stream=channel0_ext.bcs&user={FRIGATE_CAM_USER}\
+        &password={FRIGATE_CAM_PASS}"
+cameras:
+  entree:
+    ffmpeg:
+      hwaccel_args: preset-vaapi
+      inputs:
+        - path: rtsp://127.0.0.1:8554/entree
+          input_args: preset-rtsp-restream
+          roles: [record]
+        - path: rtsp://127.0.0.1:8554/entree_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+    detect: {width: 640, height: 360, fps: 5}
+    objects:
+      track: [person, car, cat, dog]
+      filters:
+        person: {min_score: 0.6, threshold: 0.7, min_area: 1500}
+    zones:
+      allee:
+        coordinates: 0.1,0.9,0.5,0.9,0.5,0.5,0.1,0.5
+    review:
+      alerts:
+        # une alerte seulement dans l'allee
+        required_zones: [allee]
+    record:
+      enabled: true
+      continuous: {days: 0}           # pas d'enregistrement continu
+      motion: {days: 3}
+      alerts: {retain: {days: 30}}
+      detections: {retain: {days: 30}}

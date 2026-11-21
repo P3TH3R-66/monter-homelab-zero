@@ -1,0 +1,26 @@
+# Jellyfin (bibliotheque) et Seerr (demandes)
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:X.Y.Z
+    ports: ["8096:8096"]
+    volumes:
+      - /volume2/appdata/jellyfin:/config
+      - /volume1/media:/media:ro
+    # acceleration video (Intel) ; droits : voir 7.4
+    devices: ["/dev/dri:/dev/dri"]
+    networks: [media-backend]
+    restart: unless-stopped
+
+  seerr:
+    image: ghcr.io/seerr-team/seerr:vX.Y.Z
+    ports: ["127.0.0.1:5055:5055"]
+    networks: [media-backend]
+    # exige par la doc officielle de Seerr
+    init: true
+    environment: [TZ=America/Toronto]
+    volumes: ["/volume2/appdata/seerr:/app/config"]
+    restart: unless-stopped
+
+networks:
+  media-backend:
+    external: true

@@ -1,0 +1,62 @@
+// Politique Tailscale complete (exemple fictif)
+{
+  "groups": {
+    "group:famille": ["toi@exemple.com", "conjoint@exemple.com"],
+  },
+  "tagOwners": {
+    "tag:nas":     ["autogroup:admin"],
+    "tag:serveur": ["autogroup:admin"],
+  },
+  "grants": [
+    // toi : l'administration (SSH, web, Proxmox)
+    // et les documents (Paperless, 8010)
+    {
+      "src": ["autogroup:admin"],
+      "dst": ["tag:nas", "tag:serveur"],
+      "ip":  ["tcp:22", "tcp:443", "tcp:8006", "tcp:2222",
+              "tcp:8010"],
+    },
+    // demonstration seulement, jamais en vrai :
+    // { "src": ["autogroup:admin"], "dst": ["*"], "ip": ["*"] },
+    // tout le monde : le DNS filtrant, sinon "Override DNS"
+    // coupe les noms hors de la maison
+    {
+      "src": ["autogroup:member"],
+      "dst": ["192.168.1.22", "192.168.1.23"],
+      "ip":  ["udp:53", "tcp:53"],
+    },
+    // la famille : seulement les photos et les films
+    {
+      "src": ["group:famille"],
+      "dst": ["tag:nas"],
+      "ip":  ["tcp:443", "tcp:8096"],
+    },
+    // les serveurs entre eux : la surveillance seulement
+    {
+      "src": ["tag:serveur"],
+      "dst": ["tag:nas"],
+      "ip":  ["tcp:9100"],
+    },
+    // sortir par le NAS (noeud de sortie)
+    {
+      "src": ["autogroup:member"],
+      "dst": ["autogroup:internet"],
+      "ip":  ["*"],
+    },
+  ],
+  "ssh": [
+    {
+      "action": "check",
+      "src":    ["autogroup:admin"],
+      "dst":    ["tag:serveur"],
+      "users":  ["root"],
+    },
+  ],
+  "tests": [
+    {
+      "src":    "conjoint@exemple.com",
+      "accept": ["tag:nas:443", "192.168.1.23:53"],
+      "deny":   ["tag:serveur:22", "tag:nas:8010"],
+    },
+  ],
+}

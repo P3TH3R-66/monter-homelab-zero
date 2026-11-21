@@ -1,0 +1,17 @@
+// Politique Tailscale (extrait, noms fictifs)
+{
+  "grants": [
+    // tout le monde : les photos (Immich, Serve en 443)
+    {
+      "src": ["autogroup:member"],
+      "dst": ["tag:nas"],
+      "ip":  ["tcp:443"]
+    },
+    // toi seulement : les documents (Paperless, 8010)
+    {
+      "src": ["autogroup:admin"],
+      "dst": ["tag:nas"],
+      "ip":  ["tcp:8010"]
+    }
+  ]
+}

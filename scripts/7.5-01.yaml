@@ -1,0 +1,10 @@
+# Dans le compose de Prowlarr (meme reseau Docker, aucun port publie)
+  flaresolverr:
+    # version epinglee
+    image: ghcr.io/flaresolverr/flaresolverr:v3.X.Y
+    restart: unless-stopped
+    environment:
+      - LOG_LEVEL=info
+      - TZ=America/Toronto
+    # Chrome est gourmand
+    mem_limit: 768m

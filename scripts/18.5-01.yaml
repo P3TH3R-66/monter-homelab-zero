@@ -1,0 +1,23 @@
+# Exemple pour une app simple qui tourne deja sans root
+services:
+  app:
+    image: exemple/app:X.Y.Z
+    user: "1000:1000"
+    # systeme de fichiers en lecture seule...
+    read_only: true
+    tmpfs: [/tmp]                    # ...sauf /tmp, en memoire
+    security_opt: ["no-new-privileges:true"]
+    # puis cap_add seulement ce qui manque
+    cap_drop: [ALL]
+    pids_limit: 200
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/health"]
+      interval: 1m30s
+      timeout: 5s
+      retries: 3
+    networks: [interne]
+
+networks:
+  interne:
+    internal: true                   # aucune sortie vers Internet

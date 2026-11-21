@@ -1,0 +1,16 @@
+# compose (extrait) : lecture seule par defaut, NAS seulement
+services:
+  filebrowser:
+    # epinglee par empreinte
+    image: gtstef/filebrowser:stable@sha256:...
+    # servie ensuite par Tailscale
+    ports: ["127.0.0.1:8097:80"]
+    environment:
+      - TZ=America/Toronto
+      - FILEBROWSER_CONFIG=/home/filebrowser/data/config.yaml
+    volumes:
+      # :ro = lecture seule
+      - /volume1/documents:/srv/Documents:ro
+      - /volume2/appdata/filebrowser:/home/filebrowser/data
+    mem_limit: 512m
+    restart: unless-stopped

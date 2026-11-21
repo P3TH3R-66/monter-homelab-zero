@@ -1,0 +1,7 @@
+# /volume2/appdata/filebrowser/config.yaml
+# (extrait), a creer AVANT le premier demarrage
+server:
+  port: 80
+  sources:
+    - path: /srv/Documents
+      name: Documents

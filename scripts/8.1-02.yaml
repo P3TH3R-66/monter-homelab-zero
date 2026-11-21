@@ -1,0 +1,30 @@
+# /volume2/docker/paperless/docker-compose.yml (extrait)
+services:
+  broker:
+    # le compose officiel de la v3 utilise Valkey
+    image: valkey/valkey:X.Y.Z-alpine
+    restart: unless-stopped
+
+  paperless:
+    image: ghcr.io/paperless-ngx/paperless-ngx:X.Y.Z
+    # NAS seulement, servi par Tailscale
+    ports: ["127.0.0.1:8010:8000"]
+    env_file: .env                     # PAPERLESS_SECRET_KEY ici
+    environment:
+      - PAPERLESS_REDIS=redis://broker:6379
+      - PAPERLESS_OCR_LANGUAGE=fra+eng
+      - PAPERLESS_TIME_ZONE=America/Toronto   # UTC par defaut
+      - PAPERLESS_URL=https://nas.exemple.ts.net:8010
+      - USERMAP_UID=1000
+      - USERMAP_GID=1000
+      # Premier compte : PAPERLESS_ADMIN_USER et
+      # PAPERLESS_ADMIN_PASSWORD dans le .env,
+      # le temps du premier demarrage, puis retire-les
+    volumes:
+      - /volume2/appdata/paperless/data:/usr/src/paperless/data
+      - /volume1/documents/paperless:/usr/src/paperless/media
+      - /volume1/documents/a-classer:/usr/src/paperless/consume
+      # pour document_exporter
+      - /volume1/documents/paperless-export:/usr/src/paperless/export
+    depends_on: [broker]
+    restart: unless-stopped

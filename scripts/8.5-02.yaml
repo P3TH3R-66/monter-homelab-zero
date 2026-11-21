@@ -1,0 +1,24 @@
+# compose (extrait)
+services:
+  audiobookshelf:
+    # epinglee, jamais latest
+    image: ghcr.io/advplyr/audiobookshelf:X.Y.Z
+    # le compte qui possede les dossiers
+    user: "1000:1000"
+    # servie par Tailscale (chapitre 6.1)
+    ports: ["127.0.0.1:13378:80"]
+    environment:
+      - TZ=America/Toronto
+    volumes:
+      # base de donnees : disque local seulement
+      - ./config:/config
+      # couvertures, journaux, sauvegardes
+      - ./metadata:/metadata
+      - /volume1/media/livres-audio:/audiobooks
+      - /volume1/media/balados:/podcasts
+    mem_limit: 512m                 # largement assez pour une maison
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null",
+             "http://127.0.0.1:80/healthcheck"]
+      interval: 60s
+    restart: unless-stopped

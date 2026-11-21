@@ -1,0 +1,11 @@
+# /volume2/docker/exemple/docker-compose.yml
+services:
+  hello:
+    # branche stable au moment d'ecrire (nov.
+    # 2026) : prends la plus recente
+    image: nginx:1.30
+    container_name: hello
+    ports:
+      # essai seulement : docker compose down apres le test
+      - "8088:80"
+    restart: unless-stopped

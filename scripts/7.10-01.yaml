@@ -1,0 +1,10 @@
+# /volume2/docker/servarr/docker-compose.yml (extrait)
+  bazarr:
+    image: ghcr.io/hotio/bazarr:release-X.Y.Z
+    ports: ["6767:6767"]
+    volumes:
+      - /volume2/appdata/bazarr:/config
+      # memes chemins que Radarr et Sonarr
+      - /volume1/media:/data
+    environment: [PUID=1000, PGID=1000, TZ=America/Toronto]
+    restart: unless-stopped

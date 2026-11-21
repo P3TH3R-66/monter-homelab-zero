@@ -1,0 +1,139 @@
+Fichiers et commandes du livre « Monter son homelab de zéro » (édition de novembre 2026)
+Un fichier par bloc de code, nommé d'après sa section. Les valeurs sont des exemples fictifs : adapte-les avant usage.
+
+0-01.sh                      Ton premier conteneur, du fichier à la vérification
+0-02.yaml                    Ton premier conteneur, du fichier à la vérification
+0-03.sh                      Ton premier conteneur, du fichier à la vérification
+0-04.sh                      Dimensionner avant d’acheter
+0-05.ps1                     R1. Relever l'existant sans le modifier
+0-06.ps1                     R4. Tester les adresses avant les noms
+0-07.ps1                     R5. Installer et éprouver deux DNS
+0-08.ps1                     R8. Valider l'isolation avec de vrais services
+2.3-01.yaml                  AdGuard Home
+2.4-01.ps1                   Vérifier
+2.4-02.sh                    Vérifier
+3.1-01.sh                    Disques effacés et premier démarrage Docker
+3.1-02.sh                    Structure de dossiers
+3.1-03.yaml                  Premier conteneur
+3.1-04.sh                    Premier conteneur
+3.2-01.sh                    Un mini PC Linux en secondaire
+3.2-02.yaml                  Un mini PC Linux en secondaire
+3.2-03.sh                    Un mini PC Linux en secondaire
+4.1-01.sh                    SSH par clé seulement
+4.1-02.sh                    Créer et protéger ta clé SSH, pas à pas
+4.1-03.ps1                   Créer et protéger ta clé SSH, pas à pas
+4.1-04.sh                    Créer et protéger ta clé SSH, pas à pas
+4.1-05.sh                    Créer et protéger ta clé SSH, pas à pas
+4.1-06.sh                    Les secrets
+5.1-01.sh                    Installer Proxmox
+5.1-02.sh                    Mettre à jour
+5.1-03.sh                    Passer un périphérique USB à une seule VM
+5.1-04.sh                    Un labo isolé
+5.2-01.sh                    Les commandes utiles
+5.4-01.sh                    L'installer dans le labo
+5.4-02.sh                    Un premier exercice sans risque
+5.5-01.sh                    L'installer dans Proxmox
+5.6-01.sh                    S'y connecter avec VS Code
+5.6-02.sh                    Le travail de tous les jours
+5.6-03.sh                    Instantané avant un gros essai
+6.1-01.sh                    Installer
+6.1-02.hujson                Les règles d'accès (ACL)
+6.1-03.sh                    Comment ça marche, en vrai
+6.1-04.sh                    Tailscale Serve : une app en HTTPS, au tailnet seulement
+6.2-01.hujson                La politique, en entier
+6.2-02.sh                    Le nœud de sortie (exit node)
+6.2-03.sh                    Le routeur de sous-réseau, plus loin
+6.2-04.sh                    Dépannage
+7.1-01.sh                    Relier les piles Compose et les clients correctement
+7.1-02.yaml                  Le téléchargeur derrière un VPN (le plus important)
+7.1-03.sh                    Le téléchargeur derrière un VPN (le plus important)
+7.1-04.sh                    Le téléchargeur derrière un VPN (le plus important)
+7.1-05.yaml                  Les gestionnaires et l'annuaire
+7.1-06.sh                    Les hardlinks : ranger sans copier deux fois
+7.1-07.yaml                  La bibliothèque et la porte d'entrée
+7.1-08.sh                    La bibliothèque et la porte d'entrée
+7.2-01.yaml                  Le conteneur SABnzbd
+7.3-01.sh                    Le VPN et le coupe-circuit (gluetun)
+7.3-02.sh                    Le VPN et le coupe-circuit (gluetun)
+7.4-01.sh                    Jellyfin : le transcodage
+7.5-01.yaml                  L'installer
+7.6-01.yaml                  Les réglages qui comptent
+7.6-02.yaml                  Les pièges
+7.6-03.sh                    Vérifier qu'il protège vraiment
+7.9-01.yaml                  Choisir la bonne image
+7.10-01.yaml                 7.10 Bazarr et les outils de ménage
+8.1-01.sh                    Immich (photos et vidéos)
+8.1-02.yaml                  Paperless (documents)
+8.2-01.sh                    Sauvegarder et mettre à jour
+8.3-01.yaml                  L'installer prudemment
+8.3-02.yaml                  L'installer prudemment
+8.4-01.yaml                  L'installer
+8.5-01.sh                    Ranger les fichiers avant de commencer
+8.5-02.yaml                  L'installer
+9.1-01.sh                    Installer
+9.1-02.sh                    Une première automatisation
+9.2-01.sh                    Les automatisations, bien faites
+9.2-02.yaml                  Bannir les adresses qui devinent le mot de passe
+9.4-01.sh                    2. Nommer les objets
+9.4-02.sh                    3. Alléger le fichier
+9.4-03.sh                    4. Mettre dans Home Assistant
+9.5-01.yaml                  Un exemple : une petite serre
+10.1-01.yaml                 Où le faire tourner
+10.2-01.yaml                 Le modèle et le détecteur
+10.2-02.yaml                 Le modèle et le détecteur
+10.2-03.yaml                 Une caméra, bien réglée
+11.1-01.sh                   Installer Ollama
+11.1-02.sh                   Installer Ollama
+11.1-03.yaml                 Une interface web
+11.2-01.yaml                 Installer avec Docker
+11.2-02.json                 Un premier flux utile
+11.2-03.sh                   Sauvegarder et mettre à jour
+11.3-01.sh                   Installer et gérer
+11.4-01.py                   Étape 4 : mesurer
+11.6-01.yaml                 Le monter, pas à pas
+11.6-02.sh                   Le monter, pas à pas
+11.6-03.sh                   Le monter, pas à pas
+12.1-01.yaml                 Monter la chaîne, pas à pas
+12.1-02.yaml                 Monter la chaîne, pas à pas
+12.1-03.sh                   Ce que les exporteurs ne voient pas : les scripts
+12.1-04.sh                   Ce que les exporteurs ne voient pas : les scripts
+12.1-05.sh                   Les alertes qui comptent
+12.1-06.sh                   Les alertes qui comptent
+12.1-07.sh                   Les alertes qui comptent
+12.2-01.yaml                 Étape 1 : installer
+12.2-02.yaml                 Étape 3 : une première carte
+12.2-03.yaml                 Étape 4 : les widgets
+13.1-01.sh                   Vers le nuage, chiffré
+13.2-01.sh                   Organiser la nuit
+13.2-02.ps1                  PowerShell sur ton PC
+13.2-03.sh                   Linux : le système
+13.2-04.sh                   Linux : le réseau
+13.2-05.sh                   Linux : les fichiers et les disques
+13.2-06.sh                   Docker
+13.2-07.sh                   Proxmox
+13.2-08.sh                   Raspberry Pi
+15.1-01.sh                   Un diagnostic doit distinguer les couches
+15.3-01.sh                   Le test de restauration doit inclure les accès et les donnée
+17.2-01.sh                   17.2 Un script sûr, pas à pas
+18.1-01.sh                   Ce qu'il faut
+18.1-02.yaml                 Ce qu'il faut
+18.1-03.sh                   Ce qu'il faut
+18.2-01.yaml                 18.2 Une seule connexion pour plusieurs apps
+18.2-02.sh                   18.2 Une seule connexion pour plusieurs apps
+18.3-01.yaml                 18.3 Savoir quand mettre à jour
+18.4-01.sh                   18.4 Tes composes dans Git
+18.4-02.sh                   18.4 Tes composes dans Git
+18.5-01.yaml                 18.5 Durcir un conteneur
+18.6-01.sh                   18.6 Les journaux au même endroit
+fiche-vm-01.sh               3. Vérifier, sauvegarder, revenir
+fiche-dns-01.sh              1. Préparer la VM et le dossier
+fiche-dns-02.sh              Installation de Docker sur une VM Debian 13 neuve
+fiche-dns-03.sh              Installation de Docker sur une VM Debian 13 neuve
+fiche-dns-04.sh              Installation de Docker sur une VM Debian 13 neuve
+fiche-dns-05.yaml            Installation de Docker sur une VM Debian 13 neuve
+fiche-dns-06.sh              2. Démarrer et configurer
+fiche-dns-07.sh              2. Démarrer et configurer
+fiche-ha-01.ps1              2. Transférer et importer le disque
+fiche-ha-02.sh               2. Transférer et importer le disque
+fiche-tailscale-01.sh        Installation Tailscale sur Debian 13
+fiche-tailscale-02.sh        2. Publier par Serve

@@ -1,0 +1,14 @@
+# /volume2/docker/sabnzbd/docker-compose.yml
+services:
+  sabnzbd:
+    image: ghcr.io/hotio/sabnzbd:release-X.Y.Z
+    container_name: sabnzbd
+    ports: ["8085:8080"]
+    environment: [PUID=1000, PGID=1000, TZ=America/Toronto]
+    volumes:
+      - /volume2/appdata/sabnzbd:/config
+      - /volume2/sab-incomplete:/incomplete   # en cours : sur le SSD
+      # fini : meme volume que la bibliotheque
+      - /volume1/media:/data
+    mem_limit: 3g
+    restart: unless-stopped

@@ -1,0 +1,9 @@
+// Corps du node HTTP Request vers Ollama (chat, sans streaming)
+{ "model": "qwen3:8b", "stream": false, "think": false,
+  "options": { "temperature": 0.2 },
+  "messages": [
+    { "role": "system",
+      "content": "Resume en 3 lignes, en francais." },
+    { "role": "user",
+      "content": {{ JSON.stringify(JSON.stringify($json)) }} } ] }
+// La reponse est dans message.content

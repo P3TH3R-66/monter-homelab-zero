@@ -1,0 +1,43 @@
+# /volume2/docker/downloads/docker-compose.yml
+services:
+  gluetun:                      # le tunnel VPN + coupe-circuit
+    # jamais latest : il suit la branche de developpement
+    image: qmcgaw/gluetun:vX.Y.Z
+    container_name: gluetun
+    cap_add: [NET_ADMIN]
+    devices: ["/dev/net/tun:/dev/net/tun"]
+    # la cle privee WireGuard est ici, en 600
+    env_file: .env
+    environment:
+      - VPN_SERVICE_PROVIDER=ton_fournisseur
+      - VPN_TYPE=wireguard
+      - SERVER_COUNTRIES=Canada
+    ports:
+      # l'interface de qBittorrent passe par ici
+      # ; servie par Tailscale (6.1)
+      - "127.0.0.1:8080:8080"
+    # reseau partage avec les *arr (encadre plus haut)
+    networks: [media-backend]
+    restart: unless-stopped
+
+  qbittorrent:
+    image: ghcr.io/hotio/qbittorrent:release-X.Y.Z
+    container_name: qbittorrent
+    # CLE : qBit partage le reseau du VPN
+    network_mode: "service:gluetun"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Toronto
+    volumes:
+      - /volume2/appdata/qbittorrent:/config
+      # meme montage que les *arr : hardlinks
+      - /volume1/media:/data
+    depends_on:
+      gluetun: {condition: service_healthy, restart: true}
+    restart: unless-stopped
+
+networks:
+  media-backend:
+    # cree une fois : docker network create media-backend
+    external: true

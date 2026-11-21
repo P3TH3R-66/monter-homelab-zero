@@ -1,0 +1,25 @@
+# docker-compose.yml de Frigate (extrait)
+services:
+  frigate:
+    image: ghcr.io/blakeblackshear/frigate:X.Y.Z
+    # a ajuster selon le nombre de cameras
+    shm_size: "256mb"
+    devices:
+      # decodage video Intel
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    volumes:
+      - ./config:/config
+      - /mnt/enregistrements:/media/frigate
+      - type: tmpfs
+        target: /tmp/cache
+        tmpfs: {size: 1000000000}
+    ports:
+      # interface AVEC connexion (HTTPS)
+      - "8971:8971"
+      # - "8554:8554"   rediffusion RTSP, seulement
+      # si un autre logiciel lit les flux
+      # - "8555:8555/tcp" et "8555:8555/udp"
+      # WebRTC, pour un direct plus fluide
+    # mots de passe des cameras et de MQTT
+    env_file: .env
+    restart: unless-stopped

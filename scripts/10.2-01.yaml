@@ -1,0 +1,7 @@
+# config.yml, premier essai
+mqtt:
+  enabled: false
+detectors:
+  ov:
+    type: openvino
+    device: GPU
