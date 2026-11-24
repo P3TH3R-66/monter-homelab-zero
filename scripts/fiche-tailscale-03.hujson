@@ -1,0 +1,11 @@
+// dans "grants" : l'admin seulement, port 8443
+{
+  "src": ["autogroup:admin"],
+  "dst": ["tag:serveur"],
+  "ip":  ["tcp:8443"],
+},
+// dans "tests" : la famille reste dehors
+{
+  "src":  "conjoint@exemple.com",
+  "deny": ["tag:serveur:8443"],
+},

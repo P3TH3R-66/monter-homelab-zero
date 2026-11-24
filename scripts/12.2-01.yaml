@@ -11,6 +11,8 @@ services:
       - HOMEPAGE_ALLOWED_HOSTS=localhost:3000,nas.exemple.ts.net:3000
       - PUID=1000
       - PGID=1000
+    # le widget joint radarr:7878 par le reseau des *arr (7.x)
+    networks: [default, media-backend]
     volumes:
       - ./config:/app/config
       # tes fichiers (page, JSON)
@@ -21,3 +23,7 @@ services:
     image: ghcr.io/tecnativa/docker-socket-proxy:vX.Y.Z
     environment: [CONTAINERS=1, POST=0]
     volumes: ["/var/run/docker.sock:/var/run/docker.sock:ro"]
+
+networks:
+  media-backend:
+    external: true

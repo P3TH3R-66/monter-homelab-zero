@@ -1,7 +1,8 @@
 # services.yaml
 - Médiathèque:
     - Radarr:
-        href: http://nas:7878
+        # navigateur : l'adresse publiee par Serve (6.1)
+        href: https://nas.exemple.ts.net:7878
         icon: radarr.png
         description: Films
         # pastille : conteneur en marche
@@ -9,5 +10,6 @@
         container: radarr
         widget:
           type: radarr
+          # widget : le nom du conteneur, meme reseau
           url: http://radarr:7878
           key: "{{HOMEPAGE_VAR_RADARR_KEY}}"

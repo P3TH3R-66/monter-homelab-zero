@@ -1,0 +1,10 @@
+# etc/server.yml : tout est ferme par defaut
+base-url: "https://nas.exemple.ts.net:2586"
+listen-http: ":8080"
+behind-proxy: true
+cache-file: "/var/cache/ntfy/cache.db"
+cache-duration: "72h"
+auth-file: "/var/lib/ntfy/user.db"
+auth-default-access: "deny-all"
+enable-signup: false
+enable-login: true

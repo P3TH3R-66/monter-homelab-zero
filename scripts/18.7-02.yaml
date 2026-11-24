@@ -1,0 +1,19 @@
+# docker-compose.yml : ntfy
+services:
+  ntfy:
+    image: binwiederhier/ntfy:v2.28.0
+    container_name: ntfy
+    command: serve
+    user: "1000:1000"
+    ports:
+      - "127.0.0.1:2586:8080"   # le NAS seulement
+    volumes:
+      - ./etc:/etc/ntfy:ro
+      - ./lib:/var/lib/ntfy
+      - ./cache:/var/cache/ntfy
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 256m
+    restart: unless-stopped

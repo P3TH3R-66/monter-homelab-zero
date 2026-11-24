@@ -11,6 +11,8 @@ services:
       - HOST=127.0.0.1
       # le premier compte cree devient admin
       - PORT=3000
+      # Ollama par defaut (127.0.0.1) ; variante LAN :
+      # http://192.168.1.30:11434, la meme que OLLAMA_HOST
       - OLLAMA_BASE_URL=http://127.0.0.1:11434
     volumes: ["./data:/app/backend/data"]
     restart: unless-stopped

@@ -1,0 +1,17 @@
+# docker-compose.yml : Memos, notes rapides
+services:
+  memos:
+    image: neosmemo/memos:26.11.2
+    container_name: memos
+    ports:
+      - "127.0.0.1:5230:5230"   # le NAS seulement
+    environment:
+      - TZ=America/Toronto
+      - MEMOS_UID=1000
+      - MEMOS_GID=1000
+    volumes:
+      - ./data:/var/opt/memos
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 256m
+    restart: unless-stopped

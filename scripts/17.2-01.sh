@@ -39,8 +39,12 @@ case "$MODE" in
     # Preuve : plus aucun vieux journal ne doit rester
     RESTE="$(find "$CIBLE" -maxdepth 1 -type f \
       -name '*.log' -mtime +"$JOURS" | wc -l)"
-    if [ "$N" -eq 0 ] && [ "$RESTE" -eq 0 ]; then
-      rmdir "$DEST"; echo "Rien a deplacer."; exit 0
+    if [ "$N" -eq 0 ]; then
+      # Lot vide : le repere du lot precedent reste
+      rmdir "$DEST"
+      [ "$RESTE" -eq 0 ] && { echo "Rien a deplacer."; exit 0; }
+      echo "Aucun deplace, $RESTE refuse(s) (droits ?)"
+      exit 2
     fi
     # Le lot garde son dossier d'origine
     printf '%s\n' "$CIBLE" > "$DEST/.origine"
