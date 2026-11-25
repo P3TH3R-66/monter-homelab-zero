@@ -5,9 +5,10 @@
         href: https://nas.exemple.ts.net:7878
         icon: radarr.png
         description: Films
-        # pastille : conteneur en marche
+        # pastille : le nom REEL du conteneur (docker ps),
+        # souvent servarr-radarr-1 sans container_name
         server: mon-docker
-        container: radarr
+        container: servarr-radarr-1
         widget:
           type: radarr
           # widget : le nom du conteneur, meme reseau

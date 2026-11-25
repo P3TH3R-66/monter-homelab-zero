@@ -31,6 +31,12 @@ case "$MODE" in
   appliquer)
     mkdir -p "$CORBEILLE"
     DEST="$(mktemp -d "$CORBEILLE/logs-$STAMP-XXXX")"
+    # Avant tout deplacement : le lot note son origine et
+    # devient le lot en cours (retour marche meme apres
+    # un Ctrl+C) ; le repere du lot termine avant est garde
+    printf '%s\n' "$CIBLE" > "$DEST/.origine"
+    if [ -f "$NOTE" ]; then cp -- "$NOTE" "$NOTE.precedent"; fi
+    printf '%s\n' "$DEST" > "$NOTE"
     N=0
     while IFS= read -r -d '' F; do
       mv -n -- "$F" "$DEST"/ && N=$((N + 1))
@@ -40,15 +46,17 @@ case "$MODE" in
     RESTE="$(find "$CIBLE" -maxdepth 1 -type f \
       -name '*.log' -mtime +"$JOURS" | wc -l)"
     if [ "$N" -eq 0 ]; then
-      # Lot vide : le repere du lot precedent reste
-      rmdir "$DEST"
+      # Lot vide : le repere du lot precedent revient
+      rm -f -- "$DEST/.origine"; rmdir "$DEST"
+      if [ -f "$NOTE.precedent" ]; then
+        mv -f -- "$NOTE.precedent" "$NOTE"
+      else
+        rm -f -- "$NOTE"
+      fi
       [ "$RESTE" -eq 0 ] && { echo "Rien a deplacer."; exit 0; }
       echo "Aucun deplace, $RESTE refuse(s) (droits ?)"
       exit 2
     fi
-    # Le lot garde son dossier d'origine
-    printf '%s\n' "$CIBLE" > "$DEST/.origine"
-    printf '%s\n' "$DEST" > "$NOTE"
     echo "Deplaces vers $DEST : $N fichier(s)."
     if [ "$RESTE" -gt 0 ]; then
       echo "Restes dans $CIBLE : $RESTE (droits ?)"

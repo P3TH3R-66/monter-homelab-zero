@@ -1,41 +1,41 @@
-Fichiers et commandes du livre « Monter son homelab de zéro » (édition de novembre 2026, révisée le 24 nov.)
+Fichiers et commandes du livre « Monter son homelab de zéro » (édition de novembre 2026, révisée le 25 nov.)
 Un fichier par bloc de code, nommé d'après sa section. Les valeurs sont des exemples fictifs : adapte-les avant usage.
 Colonnes : fichier | type | machine où il sert | page du livre broché | nom à lui donner une fois téléchargé | mode voir | section
 Mode voir = « oui » : le script a une simulation (bash fichier voir). Les autres se lisent et se lancent une ligne à la fois.
 Les fichiers .yaml, .caddyfile, .alloy et .json se collent dans l'outil indiqué ; ils ne se lancent pas. Un fichier .env garde des secrets : renomme-le .env, puis chmod 600, et ne le mets jamais dans Git.
 
-0-01.sh                   | commandes shell      | VM Debian d'essai              | 14  |                                    |     | Ton premier conteneur, du fichier à la vérification
-0-02.yaml                 | Compose (YAML)       | VM Debian d'essai              | 15  |                                    |     | Ton premier conteneur, du fichier à la vérification
-0-03.sh                   | commandes shell      | VM Debian d'essai              | 15  |                                    |     | Ton premier conteneur, du fichier à la vérification
-0-04.sh                   | commandes shell      | PC ou serveur                  | 18  |                                    |     | Dimensionner avant d’acheter
-0-05.ps1                  | PowerShell           | PC Windows                     | 22  |                                    |     | R1. Relever l'existant sans le modifier
-0-06.ps1                  | PowerShell           | PC Windows                     | 24  |                                    |     | R4. Tester les adresses avant les noms
-0-07.ps1                  | PowerShell           | PC Windows                     | 25  |                                    |     | R5. Installer et éprouver deux DNS
-0-08.ps1                  | PowerShell           | PC Windows                     | 28  |                                    |     | R8. Valider l'isolation avec de vrais services
-2.3-01.yaml               | Compose (YAML)       | VM ou mini PC (AdGuard)        | 36  |                                    |     | AdGuard Home
-2.4-01.ps1                | Linux puis PowerShell | VM Linux, puis PC Windows      | 40  |                                    |     | Vérifier
-2.4-02.sh                 | commandes shell      | PC ou VM Linux                 | 41  |                                    |     | Vérifier
-3.1-01.sh                 | commandes shell      | NAS                            | 54  |                                    |     | Disques effacés et premier démarrage Docker
-3.1-02.sh                 | commandes shell      | NAS                            | 56  |                                    |     | Structure de dossiers
-3.1-03.yaml               | Compose (YAML)       | NAS                            | 57  |                                    |     | Premier conteneur
-3.1-04.sh                 | commandes shell      | NAS                            | 57  |                                    |     | Premier conteneur
-3.2-01.sh                 | commandes shell      | mini PC Linux                  | 60  |                                    |     | Un mini PC Linux en secondaire
-3.2-02-onduleur-alerte.sh | script shell         | mini PC Linux                  | 61  | /usr/local/sbin/onduleur-alerte.sh |     | Un mini PC Linux en secondaire
-3.2-02-preparer.sh        | commandes shell      | mini PC Linux                  | 61  |                                    |     | Un mini PC Linux en secondaire
-3.2-03.sh                 | commandes shell      | mini PC Linux                  | 62  |                                    |     | Un mini PC Linux en secondaire
-4.1-01.sh                 | commandes shell      | PC, puis chaque serveur Linux  | 66  |                                    |     | SSH par clé seulement
-4.1-02.sh                 | commandes shell      | PC, puis chaque serveur Linux  | 67  |                                    |     | Créer et protéger ta clé SSH, pas à pas
-4.1-03.ps1                | PowerShell           | PC Windows                     | 67  |                                    |     | Créer et protéger ta clé SSH, pas à pas
-4.1-04.sh                 | commandes shell      | PC, puis chaque serveur Linux  | 68  |                                    |     | Créer et protéger ta clé SSH, pas à pas
-4.1-05.sh                 | commandes shell      | PC, puis chaque serveur Linux  | 68  |                                    |     | Créer et protéger ta clé SSH, pas à pas
-4.1-06.sh                 | commandes shell      | NAS                            | 70  |                                    |     | Les secrets
-5.1-01.sh                 | commandes shell      | hôte Proxmox                   | 78  |                                    |     | Installer Proxmox
-5.1-02.sh                 | commandes shell      | hôte Proxmox                   | 78  |                                    |     | Mettre à jour
-5.1-03.sh                 | commandes shell      | hôte Proxmox                   | 80  |                                    |     | Passer un périphérique USB à une seule VM
-5.1-04.sh                 | commandes shell      | hôte Proxmox                   | 81  |                                    |     | Un labo isolé
-5.2-01.sh                 | commandes shell      | hôte Proxmox                   | 87  |                                    |     | Les commandes utiles
-5.4-01.sh                 | commandes shell      | hôte Proxmox                   | 95  |                                    |     | L'installer dans le labo
-5.4-02.sh                 | commandes shell      | VM du labo                     | 97  |                                    |     | Un premier exercice sans risque
+0-01.sh                   | commandes shell      | VM Debian d'essai              |  14 |                                    |     | Ton premier conteneur, du fichier à la vérification
+0-02.yaml                 | Compose (YAML)       | VM Debian d'essai              |  15 |                                    |     | Ton premier conteneur, du fichier à la vérification
+0-03.sh                   | commandes shell      | VM Debian d'essai              |  15 |                                    |     | Ton premier conteneur, du fichier à la vérification
+0-04.sh                   | commandes shell      | PC ou serveur                  |  18 |                                    |     | Dimensionner avant d’acheter
+0-05.ps1                  | PowerShell           | PC Windows                     |  22 |                                    |     | R1. Relever l'existant sans le modifier
+0-06.ps1                  | PowerShell           | PC Windows                     |  24 |                                    |     | R4. Tester les adresses avant les noms
+0-07.ps1                  | PowerShell           | PC Windows                     |  25 |                                    |     | R5. Installer et éprouver deux DNS
+0-08.ps1                  | PowerShell           | PC Windows                     |  28 |                                    |     | R8. Valider l'isolation avec de vrais services
+2.3-01.yaml               | Compose (YAML)       | VM ou mini PC (AdGuard)        |  36 |                                    |     | AdGuard Home
+2.4-01.ps1                | Linux puis PowerShell | VM Linux, puis PC Windows      |  40 |                                    |     | Vérifier
+2.4-02.sh                 | commandes shell      | PC ou VM Linux                 |  41 |                                    |     | Vérifier
+3.1-01.sh                 | commandes shell      | NAS                            |  54 |                                    |     | Disques effacés et premier démarrage Docker
+3.1-02.sh                 | commandes shell      | NAS                            |  56 |                                    |     | Structure de dossiers
+3.1-03.yaml               | Compose (YAML)       | NAS                            |  57 |                                    |     | Premier conteneur
+3.1-04.sh                 | commandes shell      | NAS                            |  57 |                                    |     | Premier conteneur
+3.2-01.sh                 | commandes shell      | mini PC Linux                  |  60 |                                    |     | Un mini PC Linux en secondaire
+3.2-02-onduleur-alerte.sh | script shell         | mini PC Linux                  |  61 | /usr/local/sbin/onduleur-alerte.sh |     | Un mini PC Linux en secondaire
+3.2-02-preparer.sh        | commandes shell      | mini PC Linux                  |  61 |                                    |     | Un mini PC Linux en secondaire
+3.2-03.sh                 | commandes shell      | mini PC Linux                  |  62 |                                    |     | Un mini PC Linux en secondaire
+4.1-01.sh                 | commandes shell      | PC, puis chaque serveur Linux  |  66 |                                    |     | SSH par clé seulement
+4.1-02.sh                 | commandes shell      | PC, puis chaque serveur Linux  |  67 |                                    |     | Créer et protéger ta clé SSH, pas à pas
+4.1-03.ps1                | PowerShell           | PC Windows                     |  67 |                                    |     | Créer et protéger ta clé SSH, pas à pas
+4.1-04.sh                 | commandes shell      | PC, puis chaque serveur Linux  |  68 |                                    |     | Créer et protéger ta clé SSH, pas à pas
+4.1-05.sh                 | commandes shell      | PC, puis chaque serveur Linux  |  68 |                                    |     | Créer et protéger ta clé SSH, pas à pas
+4.1-06.sh                 | commandes shell      | NAS                            |  70 |                                    |     | Les secrets
+5.1-01.sh                 | commandes shell      | hôte Proxmox                   |  78 |                                    |     | Installer Proxmox
+5.1-02.sh                 | commandes shell      | hôte Proxmox                   |  78 |                                    |     | Mettre à jour
+5.1-03.sh                 | commandes shell      | hôte Proxmox                   |  80 |                                    |     | Passer un périphérique USB à une seule VM
+5.1-04.sh                 | commandes shell      | hôte Proxmox                   |  81 |                                    |     | Un labo isolé
+5.2-01.sh                 | commandes shell      | hôte Proxmox                   |  87 |                                    |     | Les commandes utiles
+5.4-01.sh                 | commandes shell      | hôte Proxmox                   |  95 |                                    |     | L'installer dans le labo
+5.4-02.sh                 | commandes shell      | VM du labo                     |  97 |                                    |     | Un premier exercice sans risque
 5.5-01.sh                 | commandes shell      | hôte Proxmox                   | 100 |                                    |     | L'installer dans Proxmox
 5.6-01.sh                 | commandes shell      | VM de développement            | 104 |                                    |     | S'y connecter avec VS Code
 5.6-02.sh                 | commandes shell      | VM de développement            | 105 |                                    |     | Le travail de tous les jours
@@ -96,15 +96,17 @@ Les fichiers .yaml, .caddyfile, .alloy et .json se collent dans l'outil indiqué
 11.2-03.sh                | commandes shell      | VM d'outils (n8n)              | 234 |                                    |     | Sauvegarder et mettre à jour
 11.3-01.sh                | commandes shell      | VM IA du mini PC no 2          | 237 |                                    |     | Installer et gérer
 11.4-01.py                | Python               | VM IA du mini PC no 2          | 242 |                                    |     | Étape 4 : mesurer
+11.4-02-questions.json    | JSON (exemple)       | VM IA du mini PC no 2          | 242 | questions.json                     |     | Étape 4 : mesurer
 11.6-01.yaml              | Compose (YAML)       | VM IA du mini PC no 2          | 249 |                                    |     | Le monter, pas à pas
-11.6-02.sh                | commandes shell      | VM IA du mini PC no 2          | 249 |                                    |     | Le monter, pas à pas
-11.6-03.sh                | commandes shell      | VM IA du mini PC no 2          | 249 |                                    |     | Le monter, pas à pas
+11.6-01-pare-feu.sh       | commandes shell      | VM IA du mini PC no 2          | 249 |                                    |     | Le monter, pas à pas
+11.6-02.sh                | commandes shell      | VM IA du mini PC no 2          | 250 |                                    |     | Le monter, pas à pas
+11.6-03.sh                | commandes shell      | VM IA du mini PC no 2          | 250 |                                    |     | Le monter, pas à pas
 12.1-01.yaml              | Compose (YAML)       | NAS                            | 254 |                                    |     | Monter la chaîne, pas à pas
 12.1-02.yaml              | configuration (YAML) | NAS                            | 255 |                                    |     | Monter la chaîne, pas à pas
-12.1-03.sh                | commandes shell      | NAS                            | 256 |                                    |     | Ce que les exporteurs ne voient pas : les scripts
+12.1-03.prom              | métriques (.prom)    | NAS                            | 256 | scripts.prom (collecteur textfile) |     | Ce que les exporteurs ne voient pas : les scripts
 12.1-04.sh                | script shell         | NAS                            | 256 |                                    |     | Ce que les exporteurs ne voient pas : les scripts
 12.1-05.promql            | requête PromQL       | NAS (conteneur)                | 258 |                                    |     | Les alertes qui comptent
-12.1-06.sh                | commandes shell      | NAS                            | 258 |                                    |     | Les alertes qui comptent
+12.1-06.promql            | règle PromQL         | NAS                            | 258 |                                    |     | Les alertes qui comptent
 12.1-07.sh                | commandes shell      | NAS                            | 259 |                                    |     | Les alertes qui comptent
 12.2-01.yaml              | Compose (YAML)       | NAS                            | 260 | compose.yaml                       |     | Étape 1 : installer
 12.2-02-services.yaml     | configuration (YAML) | NAS                            | 261 | services.yaml                      |     | Étape 3 : une première carte
@@ -122,36 +124,36 @@ Les fichiers .yaml, .caddyfile, .alloy et .json se collent dans l'outil indiqué
 15.1-01.sh                | commandes shell      | machine Linux en panne         | 280 |                                    |     | Un diagnostic doit distinguer les couches
 15.3-01.sh                | commandes shell      | hôte Proxmox                   | 285 |                                    |     | Le test de restauration doit inclure les accès et les donnée
 17.2-01.sh                | script shell         | NAS                            | 295 |                                    | oui | 17.2 Un script sûr, pas à pas
-18.1-01.sh                | commandes shell      | NAS                            | 300 |                                    |     | Ce qu'il faut
+18.1-01.Dockerfile        | Dockerfile de Caddy  | NAS                            | 300 | Dockerfile                         |     | Ce qu'il faut
 18.1-02.yaml              | Compose (YAML)       | NAS                            | 300 |                                    |     | Ce qu'il faut
 18.1-03.Caddyfile         | Caddyfile            | NAS                            | 300 | Caddyfile                          |     | Ce qu'il faut
 18.2-01-compose.yaml      | Compose (YAML)       | NAS                            | 302 | docker-compose.yml                 |     | 18.2 Une seule connexion pour plusieurs apps
 18.2-01.env               | variables (.env)     | NAS                            | 302 | .env                               |     | 18.2 Une seule connexion pour plusieurs apps
 18.2-02.caddyfile         | extrait de Caddyfile | NAS                            | 303 |                                    |     | 18.2 Une seule connexion pour plusieurs apps
-18.3-01.yaml              | Compose (YAML)       | NAS                            | 303 |                                    |     | 18.3 Savoir quand mettre à jour
-18.4-01.sh                | commandes shell      | NAS                            | 304 |                                    |     | 18.4 Tes composes dans Git
+18.3-01.yaml              | Compose (YAML)       | NAS                            | 304 |                                    |     | 18.3 Savoir quand mettre à jour
+18.4-01.gitignore         | .gitignore           | NAS                            | 305 | .gitignore (racine du dépôt)       |     | 18.4 Tes composes dans Git
 18.4-02.sh                | commandes shell      | NAS                            | 305 |                                    |     | 18.4 Tes composes dans Git
-18.4-03-secrets.sh        | script shell         | NAS                            | 305 | secrets.sh                         |     | 18.4 Tes composes dans Git
+18.4-03-secrets.sh        | script shell         | NAS                            | 306 | secrets.sh                         |     | 18.4 Tes composes dans Git
 18.4-04.sh                | commandes shell      | NAS                            | 307 |                                    |     | 18.4 Tes composes dans Git
-18.5-01.yaml              | Compose (YAML)       | NAS                            | 307 |                                    |     | 18.5 Durcir un conteneur
-18.6-01.alloy             | config Alloy         | NAS                            | 308 |                                    |     | 18.6 Les journaux au même endroit
-18.7-01.yaml              | configuration (YAML) | NAS                            | 310 | etc/server.yml                     |     | 18.7 Tes alertes sur ton propre serveur ntfy
-18.7-02.yaml              | Compose (YAML)       | NAS                            | 310 | docker-compose.yml                 |     | 18.7 Tes alertes sur ton propre serveur ntfy
-18.7-03.sh                | commandes shell      | NAS                            | 311 |                                    |     | 18.7 Tes alertes sur ton propre serveur ntfy
-18.7-04.sh                | script shell         | NAS                            | 312 | envoyer.sh                         |     | 18.7 Tes alertes sur ton propre serveur ntfy
-fiche-dns-01.sh           | commandes shell      | VM Debian                      | 318 |                                    |     | 1. Préparer la VM et le dossier
-fiche-dns-02.sh           | commandes shell      | VM Debian                      | 318 |                                    |     | Installation de Docker sur une VM Debian 13 neuve
-fiche-dns-03.sh           | commandes shell      | VM Debian                      | 318 |                                    |     | Installation de Docker sur une VM Debian 13 neuve
-fiche-dns-04.sh           | commandes shell      | VM Debian                      | 319 |                                    |     | Installation de Docker sur une VM Debian 13 neuve
-fiche-dns-05.yaml         | Compose (YAML)       | VM Debian                      | 319 |                                    |     | Installation de Docker sur une VM Debian 13 neuve
-fiche-dns-06.sh           | commandes shell      | VM Debian                      | 319 |                                    |     | 2. Démarrer et configurer
-fiche-dns-07.ps1          | PowerShell           | PC Windows                     | 320 |                                    |     | 2. Démarrer et configurer
-fiche-ha-01.ps1           | PowerShell           | PC Windows                     | 322 |                                    |     | 2. Transférer et importer le disque
-fiche-ha-02.sh            | commandes shell      | PC puis hôte Proxmox           | 322 |                                    |     | 2. Transférer et importer le disque
-fiche-tailscale-01.sh     | commandes shell      | VM Debian                      | 324 |                                    |     | Installation Tailscale sur Debian 13
-fiche-tailscale-02.sh     | commandes shell      | VM Debian                      | 324 |                                    |     | 2. Publier par Serve
-fiche-tailscale-03.hujson | politique Tailscale  | console Tailscale (navigateur) | 324 |                                    |     | 2. Publier par Serve
-fiche-vm-01.sh            | commandes shell      | VM Debian                      | 315 |                                    |     | 3. Vérifier, sauvegarder, revenir
+18.5-01.yaml              | Compose (YAML)       | NAS                            | 308 |                                    |     | 18.5 Durcir un conteneur
+18.6-01.alloy             | config Alloy         | NAS                            | 309 |                                    |     | 18.6 Les journaux au même endroit
+18.7-01.yaml              | configuration (YAML) | NAS                            | 311 | etc/server.yml                     |     | 18.7 Tes alertes sur ton propre serveur ntfy
+18.7-02.yaml              | Compose (YAML)       | NAS                            | 311 | docker-compose.yml                 |     | 18.7 Tes alertes sur ton propre serveur ntfy
+18.7-03.sh                | commandes shell      | NAS                            | 312 |                                    |     | 18.7 Tes alertes sur ton propre serveur ntfy
+18.7-04.sh                | script shell         | NAS                            | 313 | envoyer.sh                         |     | 18.7 Tes alertes sur ton propre serveur ntfy
+fiche-dns-01.sh           | commandes shell      | VM Debian                      | 320 |                                    |     | 1. Préparer la VM et le dossier
+fiche-dns-02.sh           | commandes shell      | VM Debian                      | 320 |                                    |     | Installation de Docker sur une VM Debian 13 neuve
+fiche-dns-03.sh           | commandes shell      | VM Debian                      | 320 |                                    |     | Installation de Docker sur une VM Debian 13 neuve
+fiche-dns-04.sh           | commandes shell      | VM Debian                      | 321 |                                    |     | Installation de Docker sur une VM Debian 13 neuve
+fiche-dns-05.yaml         | Compose (YAML)       | VM Debian                      | 321 |                                    |     | Installation de Docker sur une VM Debian 13 neuve
+fiche-dns-06.sh           | commandes shell      | VM Debian                      | 321 |                                    |     | 2. Démarrer et configurer
+fiche-dns-07.ps1          | PowerShell           | PC Windows                     | 322 |                                    |     | 2. Démarrer et configurer
+fiche-ha-01.ps1           | PowerShell           | PC Windows                     | 324 |                                    |     | 2. Transférer et importer le disque
+fiche-ha-02.sh            | commandes shell      | PC puis hôte Proxmox           | 324 |                                    |     | 2. Transférer et importer le disque
+fiche-tailscale-01.sh     | commandes shell      | VM Debian                      | 326 |                                    |     | Installation Tailscale sur Debian 13
+fiche-tailscale-02.sh     | commandes shell      | VM Debian                      | 326 |                                    |     | 2. Publier par Serve
+fiche-tailscale-03.hujson | politique Tailscale  | console Tailscale (navigateur) | 326 |                                    |     | 2. Publier par Serve
+fiche-vm-01.sh            | commandes shell      | VM Debian                      | 317 |                                    |     | 3. Vérifier, sauvegarder, revenir
 7.11-01-compose.yaml      | Compose (YAML)       | NAS ou serveur Docker          | 163 |                                    |     | Navidrome : ta musique chez toi
 7.11-02.sh                | script shell         | NAS ou serveur Docker          | 166 |                                    |     | Navidrome : ta musique chez toi
 7.11-03.sh                | commandes shell      | NAS ou serveur Docker          | 166 |                                    |     | Navidrome : ta musique chez toi

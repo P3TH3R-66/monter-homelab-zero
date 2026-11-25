@@ -1,4 +1,4 @@
-# Une fois : creer le depot dans un seau B2, avec
+# Une fois (Bash) : creer le depot dans un seau B2, avec
 # une cle d'application limitee a ce seau
 # La cle passe par une saisie masquee, jamais dans la commande
 # Point de terminaison S3 : affiche sur la page du seau
@@ -7,7 +7,14 @@ export AWS_SECRET_ACCESS_KEY
 kopia repository create s3 --bucket=NOM_DU_SEAU \
   --endpoint=s3.REGION.backblazeb2.com \
   --access-key=ID_DE_CLE
+#  avec verrou : ajouter a la ligne create ci-dessus
+#  --retention-mode COMPLIANCE --retention-period 30d
 unset AWS_SECRET_ACCESS_KEY
+# Avec verrou seulement : prolonger les verrous a chaque
+# maintenance complete, au moins 1 jour plus courte (ici
+# chaque jour) que la retention
+kopia maintenance set --extend-object-locks true \
+  --full-interval 24h
 # Kopia demande le mot de passe du depot : gestionnaire ET papier
 kopia policy set --global \
   --keep-daily=14 --keep-weekly=8 --keep-monthly=12

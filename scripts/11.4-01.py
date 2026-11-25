@@ -2,7 +2,8 @@
 # les vitesses donnees par Ollama
 import json, time, urllib.request
 MODELE = "gemma4:12b"
-# [{"q": "...", "attendu": "..."}]
+# [{"q": "...", "attendu": "..."}] ; exemple :
+# 11.4-02-questions.json du depot, copie en questions.json
 for q in json.load(open("questions.json", encoding="utf-8")):
     corps = {"model": MODELE, "prompt": q["q"], "stream": False,
              "options": {"temperature": 0.2, "seed": 1,

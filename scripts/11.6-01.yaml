@@ -3,13 +3,14 @@ services:
   whisper:
     image: rhasspy/wyoming-whisper:X.Y.Z
     command: --model small-int8 --language fr
-    # ouvert a Home Assistant seulement (pare-feu)
-    ports: ["10300:10300"]
+    # sur l'adresse LAN de la machine seulement ; le filtre
+    # qui ne laisse passer que Home Assistant est plus bas
+    ports: ["ADRESSE_LAN_IA:10300:10300"]
     volumes: ["/srv/data/wyoming/whisper:/data"]
     restart: unless-stopped
   piper:
     image: rhasspy/wyoming-piper:X.Y.Z
     command: --voice fr_FR-siwis-medium
-    ports: ["10200:10200"]
+    ports: ["ADRESSE_LAN_IA:10200:10200"]
     volumes: ["/srv/data/wyoming/piper:/data"]
     restart: unless-stopped

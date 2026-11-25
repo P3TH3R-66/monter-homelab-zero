@@ -1,0 +1,18 @@
+[
+  {
+    "q": "Quelle heure est-il ?",
+    "attendu": "L'heure exacte, sans inventer"
+  },
+  {
+    "q": "Allume la lampe du salon.",
+    "attendu": "Action sur light.salon (nom fictif), confirmation courte"
+  },
+  {
+    "q": "Ferme la lumière de la piscine.",
+    "attendu": "Dit qu'il ne trouve pas cet appareil"
+  },
+  {
+    "q": "Résume en une phrase : la sauvegarde de cette nuit a réussi, 3 dossiers, 2,1 Go.",
+    "attendu": "Une phrase, chiffres exacts"
+  }
+]

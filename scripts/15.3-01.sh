@@ -1,13 +1,17 @@
 # Exemples (a adapter)
 # App Docker : arreter, restaurer a cote, comparer, remplacer
-docker stop sonarr
+# Dans le dossier du projet : Compose retrouve le conteneur
+# meme si son nom reel est servarr-sonarr-1
+cd /volume2/docker/servarr
+sudo docker compose stop sonarr
+sudo docker compose ps -a sonarr    # doit dire Exited
 # pas /tmp : souvent en RAM
 mkdir /volume2/docker/_essai-sonarr
 tar -xzf sonarr.tar.gz -C /volume2/docker/_essai-sonarr
 # liste ce qui differe
 diff -rq /volume2/docker/_essai-sonarr/config /volume2/appdata/sonarr
 # ... puis remettre a la bonne place, chown -R 1000:1000 (le
-# PUID:PGID du conteneur), docker start sonarr
+# PUID:PGID du conteneur), sudo docker compose start sonarr
 
 # VM Proxmox : sous un autre numero, sans la demarrer
 F=/mnt/pve/nas-proxmox/dump
