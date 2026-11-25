@@ -1,0 +1,16 @@
+# docker-compose.yml : Maintainerr
+services:
+  maintainerr:
+    image: maintainerr/maintainerr:3.31.0
+    container_name: maintainerr
+    user: "1000:1000"
+    environment:
+      - TZ=America/Toronto
+    volumes:
+      - /volume2/appdata/maintainerr:/opt/data
+    ports:
+      - "127.0.0.1:6246:6246"   # le NAS seulement
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 768m
+    restart: unless-stopped

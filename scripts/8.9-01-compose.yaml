@@ -1,0 +1,18 @@
+# docker-compose.yml : Changedetection
+services:
+  changedetection:
+    image: dgtlmoon/changedetection.io:0.60.5
+    container_name: changedetection
+    user: "1000:1000"
+    environment:
+      - TZ=America/Toronto
+      - PORT=5000
+      - USE_X_SETTINGS=1
+    volumes:
+      - /volume2/appdata/changedetection:/datastore
+    ports:
+      - "127.0.0.1:8102:5000"   # le NAS seulement
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    restart: unless-stopped

@@ -1,0 +1,17 @@
+# docker-compose.yml : Actual Budget
+services:
+  actual:
+    image: actualbudget/actual-server:26.9.0
+    container_name: actual
+    user: "1000:1000"
+    environment:
+      - TZ=America/Toronto
+      - ACTUAL_PORT=5006
+    volumes:
+      - /volume2/appdata/actual:/data
+    ports:
+      - "127.0.0.1:8105:5006"   # le NAS seulement
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 768m
+    restart: unless-stopped
