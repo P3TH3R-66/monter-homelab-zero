@@ -1,10 +1,13 @@
 # Une fois : creer le depot dans un seau B2, avec
 # une cle d'application limitee a ce seau
 # La cle passe par une saisie masquee, jamais dans la commande
-read -rsp "Cle B2 : " B2_KEY; echo; export B2_KEY
-kopia repository create b2 --bucket=NOM_DU_SEAU \
-  --key-id=ID_DE_CLE
-unset B2_KEY
+# Point de terminaison S3 : affiche sur la page du seau
+read -rsp "Cle B2 (secret) : " AWS_SECRET_ACCESS_KEY; echo
+export AWS_SECRET_ACCESS_KEY
+kopia repository create s3 --bucket=NOM_DU_SEAU \
+  --endpoint=s3.REGION.backblazeb2.com \
+  --access-key=ID_DE_CLE
+unset AWS_SECRET_ACCESS_KEY
 # Kopia demande le mot de passe du depot : gestionnaire ET papier
 kopia policy set --global \
   --keep-daily=14 --keep-weekly=8 --keep-monthly=12

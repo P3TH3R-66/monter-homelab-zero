@@ -35,24 +35,32 @@ deployer)
   for v in $REQUISES; do
     grep -Eq "^$v=($q)" "$t" ||
       erreur "$v absente ou vide"
+    # une seule fois : Compose garderait la derniere
+    [ "$(grep -c "^$v=" "$t")" -eq 1 ] ||
+      erreur "$v declaree plus d'une fois"
   done
   # la derniere configuration qui marchait (en 600)
-  if [ -f .env ]; then cp -- .env .env.precedent
-  else rm -f -- .env.precedent; fi
+  rm -f -- .env.precedent
+  if [ -f .env ]; then
+    cp -- .env .env.precedent
+    chmod 600 .env.precedent
+  fi
   mv -fT -- "$t" .env ||
     erreur "remplacement refuse, .env inchange"
   chmod 600 .env
-  if ! sudo docker compose up -d; then
+  # --wait : attend que l'app soit en bonne sante
+  if ! sudo docker compose up -d --wait; then
     if [ ! -f .env.precedent ]; then
       # 1er deploiement : pas de secret en clair laisse
       rm -f -- .env
       erreur "Compose a echoue, .env retire (copie chiffree intacte)"
     fi
     mv -fT -- .env.precedent .env
-    sudo docker compose up -d ||
+    chmod 600 .env
+    sudo docker compose up -d --wait ||
       echo "Attention : l'ancien .env ne demarre pas" >&2
     erreur "Compose a echoue : ancien .env remis"
   fi
-  echo "OK : .env a jour (600), app demarree" ;;
+  echo "OK : .env a jour (600), app en bonne sante" ;;
 *) erreur "choisis chiffrer ou deployer" ;;
 esac

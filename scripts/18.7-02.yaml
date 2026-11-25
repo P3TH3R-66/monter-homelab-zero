@@ -1,7 +1,7 @@
 # docker-compose.yml : ntfy
 services:
   ntfy:
-    image: binwiederhier/ntfy:v2.28.0
+    image: binwiederhier/ntfy:v2.38.2
     container_name: ntfy
     command: serve
     user: "1000:1000"
