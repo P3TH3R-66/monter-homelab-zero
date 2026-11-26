@@ -154,9 +154,9 @@ fiche-tailscale-01.sh     | commandes shell      | VM Debian                    
 fiche-tailscale-02.sh     | commandes shell      | VM Debian                      | 322 |                                    |     | 2. Publier par Serve
 fiche-tailscale-03.hujson | politique Tailscale  | console Tailscale (navigateur) | 322 |                                    |     | 2. Publier par Serve
 fiche-vm-01.sh            | commandes shell      | VM Debian                      | 313 |                                    |     | 3. Vérifier, sauvegarder, revenir
-7.11-01-compose.yaml      | Compose (YAML)       | NAS ou serveur Docker          | 160 |                                    |     | Navidrome : ta musique chez toi
+7.11-01-compose.yaml      | Compose (YAML)       | NAS ou serveur Docker          | 161 |                                    |     | Navidrome : ta musique chez toi
 7.11-02.sh                | script shell         | NAS ou serveur Docker          | 163 |                                    |     | Navidrome : ta musique chez toi
 7.11-03.sh                | commandes shell      | NAS ou serveur Docker          | 163 |                                    |     | Navidrome : ta musique chez toi
-7.12-01-compose.yaml      | Compose (YAML)       | NAS ou serveur Docker          | 164 |                                    |     | Maintainerr : faire le ménage dans ta médiathèque
+7.12-01-compose.yaml      | Compose (YAML)       | NAS ou serveur Docker          | 165 |                                    |     | Maintainerr : faire le ménage dans ta médiathèque
 8.8-01-compose.yaml       | Compose (YAML)       | NAS ou serveur Docker          | 190 |                                    |     | Actual Budget : ton budget chez toi
 8.9-01-compose.yaml       | Compose (YAML)       | NAS ou serveur Docker          | 191 |                                    |     | Changedetection : être prévenu quand une page change
